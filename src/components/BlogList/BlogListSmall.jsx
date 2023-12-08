@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import BlogListCard from './BlogListCard'
+import BlogListCard from 'src/components/BlogList/BlogListCard'
 
 const Small = () => {
   return (

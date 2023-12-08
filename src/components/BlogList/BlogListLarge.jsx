@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import image from '../assets/images/image 2.png';
+import image from 'src/assets/images/image 2.png';
 
 const BlogListLarge = () => {
   return (

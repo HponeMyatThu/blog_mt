@@ -1,6 +1,6 @@
-import BlogListSmall from '../components/BlogListSmall';
-import BlogListLarge from '../components/BlogListLarge';
-import BlogListMiddle from '../components/BlogListMiddle';
+import BlogListSmall from 'src/components/BlogList/BlogListSmall';
+import BlogListLarge from 'src/components/BlogList/BlogListLarge';
+import BlogListMiddle from 'src/components/BlogList/BlogListMiddle';
 
 function BlogList() {
   return (
