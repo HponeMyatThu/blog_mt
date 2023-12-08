@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <PageNotFound/>,
       },
       {
-        path: "/blog-list",
+        path: "/",
         element: <BlogList/>,
       }
     ],

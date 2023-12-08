@@ -3,8 +3,24 @@ import { ListGroup } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <div style={{ background: 'black', color: 'white' }}>
-      <div style={{ width: '100%', overflowX: 'auto' , display: 'flex'}}>
+    <div style={{ background: 'black', color: 'white', marginTop: '50px' }}>
+      <div style={{ width: '100%', overflow: 'auto', paddingBottom: ' 13px', display: 'flex' }}>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
+        <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
@@ -21,7 +37,18 @@ const Footer = () => {
         <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
       </div>
-      <div style={{ width: '70%', margin: '20px auto' }}>
+      <div
+        style={{
+          height: '100px',
+          width: '100%',
+          background: 'black',
+          zIndex: '10',
+          transform: 'translateY(-17px)',
+        }}
+      >
+      </div>
+
+      <div style={{ width: '70%', margin: '0px auto' }}>
         <h1
           style={{
             margin: '10px auto',
@@ -32,7 +59,7 @@ const Footer = () => {
         >
           NORDIC ROSE
         </h1>
-        <p>
+        <p className='text-center'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit
           tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce
           a nunc eget ligula suscipit finibus.{' '}
