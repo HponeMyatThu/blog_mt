@@ -4,7 +4,7 @@ import { ListGroup } from 'react-bootstrap';
 const Footer = () => {
   return (
     <div style={{ background: 'black', color: 'white', marginTop: '50px' }}>
-      <div style={{ width: '100%', overflow: 'auto', paddingBottom: ' 13px', display: 'flex' }}>
+      <div style={{ width: '100%', overflow: 'auto', display: 'flex' }}>
         <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
         <div className='mx-2 px-2'>nav</div>
@@ -74,10 +74,10 @@ const Footer = () => {
         }}
       >
         <a style={{ margin: '0px 5px', textDecoration: 'underline' }}>
-          Twitter
+          Facebook
         </a>
         <a style={{ margin: '0px 5px', textDecoration: 'underline' }}>
-          Twitter
+          Instagram
         </a>
         <a style={{ margin: '0px 5px', textDecoration: 'underline' }}>
           Twitter
