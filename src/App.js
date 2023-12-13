@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./layouts/LayOut";
 import PageNotFound from "./pages/PageNotFound";
 import BlogList from "./pages/BlogList";
+// import Articles from "src/components/Articles/Articles";
+import ArticlesList from "./pages/ArticlesList";
+// import SingleArticles from "./components/Articles/SingleArticles";
 
 const router = createBrowserRouter([
   {
@@ -15,8 +18,12 @@ const router = createBrowserRouter([
         element: <PageNotFound/>,
       },
       {
-        path: "/",
+        path: "/blog-list",
         element: <BlogList/>,
+      },
+      {
+        path: "/articles/:id",
+        element: <ArticlesList />
       }
     ],
   },
