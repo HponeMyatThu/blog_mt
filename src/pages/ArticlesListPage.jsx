@@ -3,7 +3,7 @@ import React from 'react'
 import LogoArticles from 'src/components/Articles/LogoArticles'
 import ReadArticlesList from 'src/components/Articles/ReadArticlesList'
 
-const ArticlesList = () => {
+const ArticlesListPage = () => {
   return (
     <>
       <SingleArticles />
@@ -13,4 +13,4 @@ const ArticlesList = () => {
   )
 }
 
-export default ArticlesList
+export default ArticlesListPage

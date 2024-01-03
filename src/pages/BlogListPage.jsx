@@ -2,7 +2,7 @@ import BlogListSmall from 'src/components/BlogList/BlogListSmall';
 import BlogListLarge from 'src/components/BlogList/BlogListLarge';
 import BlogListMiddle from 'src/components/BlogList/BlogListMiddle';
 
-function BlogList() {
+function BlogListPage() {
   return (
     <>
       <BlogListLarge/>
@@ -12,4 +12,4 @@ function BlogList() {
   );
 }
 
-export default BlogList;
+export default BlogListPage;
