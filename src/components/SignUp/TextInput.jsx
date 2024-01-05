@@ -4,7 +4,7 @@ import ButtonComponent from 'src/components/Global/ButtonComponent';
 import { Icon } from '@iconify/react';
 import TitleComponent from 'src/components/Global/TitleComponent';
 import { Col, Container, Row } from 'react-bootstrap';
-import './TextInput.css';
+import 'src/components/SignIn/TextInput.css';
 
 const TextInput = () => {
   const inputType = [
@@ -16,15 +16,21 @@ const TextInput = () => {
     },
     {
       id: 2,
+      type: 'email',
+      placeholder: 'Email Address',
+      className: 'w-100 py-3 px-5 my-3 border border-2 rounded-1',
+    },
+    {
+      id: 3,
       type: 'password',
       placeholder: 'Password',
       className: 'w-100 py-3 px-5 my-3 border border-2 rounded-1',
     },
   ];
+
   return (
     <>
-      <TitleComponent Text='Sign In' className='h1 mt-5 bold text-center' />
-
+      <TitleComponent Text='Sign In' className='h1 mt-5 blod text-center' />
       <div className='d-flex align-items-center justify-content-center'>
         <ButtonComponent
           className='w-100 my-5 square border border-2 p-3 rounded-1'
@@ -48,7 +54,7 @@ const TextInput = () => {
           placeholder={item.placeholder}
         />
       ))}
-      <br />
+
       <Container>
         <Row>
           <Col sm={5}>
@@ -58,10 +64,7 @@ const TextInput = () => {
               btnLabel='Sign Up'
             />
           </Col>
-          <Col
-            sm={2}
-            className='d-flex  align-items-center justify-content-center'
-          >
+          <Col sm={2} className='d-flex align-items-center justify-content-center'>
             <TitleComponent Text='or' className='text-center text-muted' />
           </Col>
           <Col sm={5}>
