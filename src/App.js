@@ -7,8 +7,12 @@ import ArticlesList from './pages/ArticlesListPage';
 import router from './router/router';
 import Test from 'src/components/Test';
 import { useState } from 'react';
+import { Provider, useSelector } from 'react-redux';
+import store from 'src/features/store';
 
 function App() {
+  console.log(useSelector(state => state));
+  
   // const [increase, setIncrease] = useState(1);
 
   // const handleIncrement = () => {
