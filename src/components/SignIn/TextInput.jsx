@@ -27,9 +27,9 @@ const TextInput = () => {
 
       <div className='d-flex align-items-center justify-content-center'>
         <ButtonComponent
-          className='w-100 my-5 square border border-2 p-3 rounded-1'
+          className='w-100 my-5 square border border-2 p-3 rounded-1 '
           type='button'
-          btnIcon={<Icon icon='ion:logo-google' width='30px' />}
+          btnIcon={<Icon icon='ion:logo-google' width='30px'/>}
           btnLabel='Continue with Google'
         />
       </div>
