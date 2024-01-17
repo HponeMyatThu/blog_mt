@@ -1,0 +1,13 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover-effect:hover {
+  background-color: #4e53a6;
+  color: #ffffff;
+}
+
+.active{
+    background-color: #4f58fe;
+    color: #ffffff;
+}

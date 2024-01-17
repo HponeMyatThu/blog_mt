@@ -1,8 +1,11 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  combineReducers,
+  configureStore,
+} from '@reduxjs/toolkit';
 import counterReducer from 'src/features/Slice/counterSlice';
 import storage from 'redux-persist/lib/storage/session';
 import userReducer from 'src/features/Slice/userSlice';
-import { persistReducer } from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +29,10 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default configureStore({
+const store = configureStore({
   reducer: persistedReducer,
 });
+
+const persistor = persistStore(store);
+
+export { store, persistor };
