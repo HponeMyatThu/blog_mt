@@ -10,6 +10,8 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { user_login } from 'src/api/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from 'src/features/Slice/userSlice';
+import SignInSchema from 'src/schema/signin.schema';
+import toast from 'react-hot-toast';
 
 const TextInput = () => {
   const navigate = useNavigate();
@@ -37,32 +39,23 @@ const TextInput = () => {
     <>
       <Formik
         initialValues={{ username: '', password: '' }}
-        validate={values => {
-          const errors = {};
-
-          switch (true) {
-            case !values.username:
-              errors.username = 'username is required';
-              break;
-            case !values.password:
-              errors.password = '<PASSWORD> is required';
-              break;
-            default:
-              break;
-          }
-          return errors;
-        }}
+        validationSchema={SignInSchema}
         onSubmit={async values => {
           try {
             const { data: response, status } = await user_login(values);
-            if(status === 'success') {
-              alert(`${status}fully logged in ${response}`);
-              navigate('/blog-list')
-              console.log(response);
+            if (status === 'success') {
+              toast.success(`${status}fully logged in`);
+              console.log(response && response.user);
+              const decodedToken = response && response[1].user.role;
               dispatch(signIn(response));
-            }  
+              if (decodedToken === 'ADMIN') {
+                return navigate('/admin/dashboard');
+              }
+              return navigate('/blog-list');
+              // dispatch(signIn(response));
+            }
           } catch (error) {
-            alert(JSON.stringify(error.response.data.message));
+            toast.error(JSON.stringify(error.response.data.message));
           }
         }}
       >
@@ -99,7 +92,11 @@ const TextInput = () => {
                   className={input.className}
                   name={input.type}
                 />
-                <ErrorMessage name={input.type} />
+                <ErrorMessage
+                  className='text-danger'
+                  name={input.type}
+                  component='div'
+                />
               </div>
             ))}
 
@@ -136,16 +133,6 @@ const TextInput = () => {
           </Form>
         )}
       </Formik>
-
-      {/* {inputType.map(item => (
-        <InputBox
-          key={item.id}
-          type={item.type}
-          className={item.className}
-          placeholder={item.placeholder}
-        />
-      ))}
-      <br /> */}
     </>
   );
 };

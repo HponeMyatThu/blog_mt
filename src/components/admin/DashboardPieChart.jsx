@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect, useState } from 'react';
 import './DashboardPieChart.css';
 import {
   PieChart,
@@ -8,14 +8,38 @@ import {
   ResponsiveContainer,
   Label,
 } from 'recharts';
+import { useQuery } from 'react-query';
+import { get_all_blogs } from 'src/api/index';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-];
 const COLORS = ['#0c73f3', '#ff8600', '#f71213'];
-const DashboardPieChart = () => {
+const DashboardPieChart = ({BlogData}) => {
+  const [pending, setPending] = useState(0);
+  const [reject, setReject] = useState(0);
+  const [approved, setApproved] = useState(0);
+
+  useEffect(() => {
+    setPending(0);
+    setReject(0);
+    setApproved(0);
+    if (BlogData && BlogData.data.data.content) {
+      BlogData.data.data.content.forEach(item => {
+        if (item.status === 'APPROVED') {
+          setApproved(prevApproved => prevApproved + 1);
+        } else if (item.status === 'PENDING') {
+          setPending(prevPending => prevPending + 1);
+        } else {
+          setReject(prevReject => prevReject + 1);
+        }
+      });
+    }
+  }, [BlogData]);
+
+  const data = [
+    { name: 'Approved', value: approved },
+    { name: 'Pending', value: pending },
+    { name: 'Reject', value: reject },
+  ];
+
   return (
     <>
       <div className='d-flex w-100'>
@@ -62,13 +86,13 @@ const DashboardPieChart = () => {
           <div className='mx-5 my-3'>Blog Information</div>
           <div className='mt-5'>
             <div className='py-2 mx-5 bg-primary text-center rounded-3 my-3 w-75'>
-              400
+              {approved}
             </div>
-            <div className='py-2 mx-5 bg-warning  text-center rounded-3 my-3 w-75'>
-              300
+            <div className='py-2 mx-5 bg-orange text-center rounded-3 my-3 w-75'>
+              {pending}
             </div>
             <div className='py-2 mx-5 bg-danger text-center rounded-3 my-3 w-75'>
-              300
+              {reject}
             </div>
           </div>
         </div>

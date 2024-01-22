@@ -11,3 +11,38 @@
     background-color: #4f58fe;
     color: #ffffff;
 }
+
+/* AdminNavbar.css */
+
+.user-info {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 25%;
+  height: 100%;
+  margin: 0.5rem;
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 50%; 
+}
+
+.user-details {
+  flex-grow: 1; 
+}
+
+.user-details p {
+  margin: 0;
+}
+
+.user-info {
+  border-top: 1px solid #ddd; 
+  padding-top: 1rem;
+}

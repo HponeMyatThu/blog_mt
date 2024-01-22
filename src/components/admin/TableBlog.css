@@ -1,0 +1,15 @@
+.custom-table {
+  font-size: 14px; 
+}
+
+.Pending{
+    color: orange !important;
+}
+
+.Approve{
+    color: blue !important;
+}
+
+.Reject{
+    color: red !important;
+}

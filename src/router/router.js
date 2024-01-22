@@ -7,6 +7,9 @@ import SignInPage from 'src/pages/SignInPage';
 import SignUpPage from 'src/pages/SignUpPage';
 import AdminDashBoardPage from 'src/pages/AdminDashBoardPage';
 import AdminLayout from 'src/layouts/AdminLayout';
+import AdminBlogList from 'src/pages/AdminBlogList';
+import AdminUserList from 'src/pages/AdminUserList';
+import ProfilePage from 'src/pages/ProfilePage';
 
 const router = createBrowserRouter([
   {
@@ -25,12 +28,16 @@ const router = createBrowserRouter([
         path: '/articles/:id',
         element: <ArticlesListPage />,
       },
+      {
+        path: '/profile',
+        element: <ProfilePage />,
+      }
     ],
   },
   {
     path: '/admin',
     element: <AdminLayout />,
-    children:[
+    children: [
       {
         path: '*',
         element: <PageNotFound />,
@@ -38,8 +45,16 @@ const router = createBrowserRouter([
       {
         path: 'dashboard',
         element: <AdminDashBoardPage />,
-      }
-    ]
+      },
+      {
+        path: 'blog-list',
+        element: <AdminBlogList />,
+      },
+      {
+        path: 'user-list',
+        element: <AdminUserList />,
+      },
+    ],
   },
   {
     path: '/sign-in',

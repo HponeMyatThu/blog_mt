@@ -21,8 +21,8 @@ const PageNotFound = () => {
               <span class="text-danger">Opps!</span> Page not found.
             </p>
             <p class="lead">The page you’re looking for doesn’t exist.</p>
-            <NavLink className="btn btn-primary" to='/'>
-              Go Home
+            <NavLink className="btn btn-primary" to='/sign-in'>
+              Go Login
             </NavLink>
           </div>
         </div>
