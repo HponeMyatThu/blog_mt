@@ -61,9 +61,13 @@ const TextInput = () => {
               data: response,
               error,
               status,
-            } = await user_register({username: values.username, email: values.email, password: values.password} );
+            } = await user_register({
+              username: values.username,
+              email: values.email,
+              password: values.password,
+            });
             status === 'success' &&
-             toast.success(`${status}fully registered , ${response}`);
+              toast.success(`${status}fully registered , ${response}`);
           } catch (error) {
             toast.error(JSON.stringify(error.response.data.message));
           }
@@ -84,7 +88,11 @@ const TextInput = () => {
                   className={input.className}
                   name={input.value}
                 />
-                <ErrorMessage name={input.type} />
+                <ErrorMessage
+                  className='text-danger'
+                  component='div'
+                  name={input.type}
+                />
               </div>
             ))}
 

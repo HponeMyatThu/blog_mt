@@ -12,7 +12,6 @@ const AdminLayout = () => {
           <AdminNavbar />
         </Col>
         <Col className='m-0 p-0' lg={10}>
-          <Navbar title='Dash board' />
           <Outlet />
         </Col>
       </Row>

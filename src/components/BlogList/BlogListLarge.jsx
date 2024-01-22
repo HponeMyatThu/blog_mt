@@ -21,7 +21,7 @@ const BlogListLarge = () => {
     setServerBlogData(blogsData)
   },[blogsData, blogsStatus, blogsError]);
 
-  const photoName = serverBlogData && serverBlogData.data.results.content[0].url_list[0].name;
+  const photoName = serverBlogData && serverBlogData.data.results?.content[0]?.url_list[0]?.name;
 
   return (
     <>
