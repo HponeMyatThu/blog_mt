@@ -12,10 +12,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from 'src/features/Slice/userSlice';
 import SignInSchema from 'src/schema/signin.schema';
 import toast from 'react-hot-toast';
+import { store } from 'src/features/store';
 
 const TextInput = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const inputType = [
     {
       id: 1,

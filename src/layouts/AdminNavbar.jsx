@@ -4,10 +4,20 @@ import image from 'src/assets/images/image 2.png';
 import './AdminNavbar.css';
 import { Icon } from '@iconify/react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { store } from 'src/features/store';
+import { useDispatch } from 'react-redux';
+import { signOut } from 'src/features/Slice/userSlice';
 
 const AdminNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const handleClick = e => {
+    e.preventDefault();
+    navigate('/sign-in');
+    dispatch(signOut());
+  };
 
   const arrayList = [
     {
@@ -58,14 +68,6 @@ const AdminNavbar = () => {
       className: 'p-3 cursor-pointer hover-effect d-flex gap-3',
       active: false,
     },
-    {
-      id: 7,
-      title: 'Logout',
-      icon: 'mdi:logout',
-      link: '/admin/logout',
-      className: 'p-3 cursor-pointer hover-effect d-flex gap-3',
-      active: false,
-    },
   ];
 
   return (
@@ -78,34 +80,30 @@ const AdminNavbar = () => {
         <div className='d-flex w-75 mx-auto'>
           <div className='d-flex flex-column gap-3 '>
             {arrayList.map(item => (
-              <div
-                onClick={e => {
-                  e.preventDefault();
-                  return navigate(item.link);
-                }}
-                className={`${item.className} ${
-                  location.pathname === item.link ? 'active' : ''
-                }`}
-              >
-                <Icon icon={item.icon} width='30px' />
-                <p className='my-auto'>{item.title}</p>
-              </div>
+              <>
+                <div
+                  onClick={e => {
+                    e.preventDefault();
+                    return navigate(item.link);
+                  }}
+                  className={`${item.className} ${
+                    location.pathname === item.link ? 'active' : ''
+                  }`}
+                >
+                  <Icon icon={item.icon} width='30px' />
+                  <p className='my-auto'>{item.title}</p>
+                </div>
+              </>
             ))}
+            <div
+              className='p-3 cursor-pointer hover-effect d-flex gap-3'
+              onClick={e => handleClick(e)}
+            >
+              <Icon icon='mdi:logout' width='30px' />
+              <p className='my-auto'>Logout</p>
+            </div>
           </div>
         </div>
-
-        {/* <div className='user-info d-flex align-items-center pb-4'>
-          <div className='user-image m-3'>
-            <img className='w-100 h-100' src={image} alt='img' />
-          </div>
-          <div className='user-details'>
-            <p>
-              <b>Aung Aung</b>
-              <br />
-              Admin
-            </p>
-          </div>
-        </div> */}
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { store } from 'src/features/store';
 
 const NavbarLayout = () => {
   const navigate = useNavigate();
@@ -66,11 +67,6 @@ const NavbarLayout = () => {
                 {item.lable}
               </Nav.Link>
             ))}
-            {/* <Nav.Link href="#home" className='border-bottom border-black'>Home</Nav.Link>
-            <Nav.Link href="#link">Blog</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
-            <Nav.Link href="#link">Links</Nav.Link>
-            <Nav.Link href="#link">Projects</Nav.Link> */}
             <button
               className='mx-5 px-3 rounded-3 bg-dark text-white'
               onClick={e => handleClick(e)}

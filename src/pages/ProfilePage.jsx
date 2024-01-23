@@ -6,8 +6,11 @@ import NextPrevPageBtn from 'src/components/admin/NextPrevPageBtn';
 import { useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import { get_all_blogs } from 'src/api/index';
+import { useNavigate } from 'react-router';
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+
   const [dataResponse, SetDataResponse] = useState();
   const [nextPrev, setNextPrev] = useState(1);
   const [pageSize, setPageSize] = useState(5);
@@ -40,11 +43,16 @@ const ProfilePage = () => {
   const handlePrevClick = () => {
     setNextPrev(prev => prev - 1);
   };
+  
+  const handleCreateBlog = (e) => {
+    e.preventDefault();
+    navigate('/create-blog');
+  }
 
   return (
     <>
       <Profile username={USERNAME} status={STATUS} email={EMAIL} />
-      <div className='d-flex justify-content-end  align-content-end w-75 mx-auto my-3'>
+      <div onClick={(e) => handleCreateBlog(e)} className='d-flex justify-content-end  align-content-end w-75 mx-auto my-3'>
         <ButtonComponent
           className='bg-warning border-0 mx-3 my-1 px-5 py-3 rounded-3 text-white'
           type='button'

@@ -10,6 +10,8 @@ import AdminLayout from 'src/layouts/AdminLayout';
 import AdminBlogList from 'src/pages/AdminBlogList';
 import AdminUserList from 'src/pages/AdminUserList';
 import ProfilePage from 'src/pages/ProfilePage';
+import CreateBlogPage from 'src/pages/CreateBlogPage';
+import BlogDetailPage from 'src/pages/BlogDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <ProfilePage />,
-      }
+      },
+      {
+        path: '/create-blog',
+        element: <CreateBlogPage />,
+      },
+      {
+        path: '/detail-blog',
+        element: <BlogDetailPage />,
+      },
     ],
   },
   {

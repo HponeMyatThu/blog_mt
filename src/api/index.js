@@ -114,3 +114,45 @@ export const make_inactive_user = async data => {
   }
 }
 
+export const get_single_blog = async data => {
+  try{
+    const response = await API.get(`blog/getBlogById/${data}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `${store && store.getState().user.user[0].Token}`,
+      },
+    });
+    return response.data;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+export const get_category = async data => {
+  try{
+    const response = await API.get(`category`, {
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `${store && store.getState().user.user[0].Token}`,
+      },
+    });
+    return response.data;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+export const delete_blog = async data => {
+  try{
+    const response = await API.patch(`blog/delete`, data, {
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `${store && store.getState().user.user[0].Token}`,
+      },
+    })
+    return response.data;
+  }
+  catch(error){
+    console.log(error);
+  }
+}
